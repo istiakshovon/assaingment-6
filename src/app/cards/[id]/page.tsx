@@ -1,3 +1,5 @@
+import AddButton from '@/app/components/cardDetails/AddButton';
+import Saved from '@/app/components/cardDetails/Saved';
 import Image from 'next/image';
 import React from 'react';
 import { CiBookmark } from 'react-icons/ci';
@@ -70,10 +72,8 @@ const cardsDetails = async ({ params }: IcardDetails) => {
                     </ol>
 
                     <div className="mt-5">
-                        <button className="btn btn-active bg-[#CCFF00] text-black rounded-2xl p-6"><IoBagAddOutline />
-                            Add to today's plan</button>
-                        <button className="btn  btn-outline border-[#9CA3AF] rounded-2xl p-6 mx-5"><CiBookmark />
-                            Save for later</button>
+                    <AddButton card={card}/>
+                        <Saved card={card}></Saved>
 
                     </div>
                 </div>

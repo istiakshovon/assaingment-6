@@ -9,7 +9,6 @@ const Navbar = () => {
 
     const links = <>
         <li><Link href="/" className={pathname === "/" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>Workouts</Link></li>
-        <li><Link href="/myplans" className={pathname === "/myplans" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>My Plans</Link></li>
     </>
 
     return (
@@ -31,7 +30,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {links}
+                        <li><Link href="/plans" className={pathname === "/myplans" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>My Plans</Link></li>
+
                 </ul>
             </div>
             <div className="navbar-end">
