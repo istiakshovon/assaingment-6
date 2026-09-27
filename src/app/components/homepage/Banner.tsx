@@ -15,7 +15,7 @@ const Banner = () => {
 
             </div>
             <div>
-                <Image src={banner} width={400} height={100}></Image>
+                <Image src={banner} alt='banner' width={400} height={100}></Image>
             </div>
         </div>
     );

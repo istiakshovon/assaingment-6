@@ -3,12 +3,14 @@ import Link from 'next/link';
 import logo from "@/assets/logo.png"
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import React, { useContext } from 'react';
+import { CardContext } from '@/context/CardContext';
 
 const Navbar = () => {
   const pathname = usePathname()
+    const {readCards,list} = useContext(CardContext);
 
     const links = <>
-        <li><Link href="/" className={pathname === "/" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>Workouts</Link></li>
     </>
 
     return (
@@ -21,7 +23,9 @@ const Navbar = () => {
                     <ul
                         tabIndex={-1}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        {links}
+                                <li><Link href="/" className={pathname === "/" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>Workouts</Link></li>
+                            <li><Link href="/plans" className={pathname === "/plans" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>My Plans</Link></li>
+
 
                     </ul>
                 </div>
@@ -30,13 +34,15 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                        <li><Link href="/plans" className={pathname === "/myplans" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>My Plans</Link></li>
+                                                    <li><Link href="/" className={pathname === "/" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>Workouts</Link></li>
+
+                            <li><Link href="/plans" className={pathname === "/plans" ? "border-0 bg-[#1A2312] rounded-4xl text-[#C2F800]" : ""}>My Plans</Link></li>
 
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost">Plans</button>
-                <button className="btn btn-ghost">Saved</button>
+                <button className="btn btn-ghost">Plans{readCards.length}</button>
+                <button className="btn btn-ghost">Saved{list.length}</button>
             </div>
         </div>
       

@@ -22,7 +22,7 @@ const getCard = async () => {
     return data
 }
 
-const cardsDetails = async ({ params }: IcardDetails) => {
+const CardsDetails = async ({ params }: IcardDetails) => {
     const { id } = await params
     const detaildata = await getCard()
     const card = detaildata.find((card: ICard) => String(card.id) === String(id))
@@ -82,4 +82,4 @@ const cardsDetails = async ({ params }: IcardDetails) => {
     );
 };
 
-export default cardsDetails;
+export default CardsDetails;

@@ -1,12 +1,10 @@
 'use client'
+import { ICard } from '@/app/types/cards.type';
 import { CardContext } from '@/context/CardContext';
 import React, { useContext } from 'react';
 import { IoBagAddOutline } from 'react-icons/io5';
 
-interface ICard {
-    id: number;
-    name: string;
-}
+
 
 const AddButton = ({card}: {card: ICard}) => {
 

@@ -6,7 +6,7 @@ export const CardContext = createContext();
 
 const CardProvider = ({children}: {children: ReactNode}) => {
 const [list, setList] = useState([]);
-const [readCards, setReadCards] = useState()
+const [readCards, setReadCards] = useState([])
 const sharedData = {
     list,setList,readCards,setReadCards
 };
