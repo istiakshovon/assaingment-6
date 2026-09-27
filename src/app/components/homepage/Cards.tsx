@@ -25,7 +25,7 @@ const Cards = async () => {
                         <div className=" card bg-base-100 justify-between shadow-sm">
                             <figure>
                                 <Image src={card.image}
-                                    alt={card.cardName}
+                                    alt={card.name}
                                     width={200}
                                     height={100} />
                             </figure>

@@ -10,8 +10,7 @@ const Navbar = () => {
   const pathname = usePathname()
     const {readCards,list} = useContext(CardContext);
 
-    const links = <>
-    </>
+  
 
     return (
          <div className="container mx-auto navbar bg-base-100 shadow-sm">
