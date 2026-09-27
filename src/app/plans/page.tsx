@@ -13,7 +13,7 @@ const PlansPage = () => {
     const {readCards,list} = useContext(CardContext);
 
     return (
-        <div>
+        <div className='container mx-auto'>
             <h2 className='text-2xl font-bold'>MY PLAN</h2>
             <h4 className='text-[#8A92A0]'>Cap of five lifts for today. Finish them, then load more.</h4>
 
@@ -31,10 +31,10 @@ const PlansPage = () => {
 
 {/* name of each tab group should be unique */}
 <div className="tabs tabs-lift mt-5">
-  <input type="radio" name="my_tabs_3" className="tab" aria-label="Today’s Plan" />
+  <input type="radio" name="my_tabs_3" className="tab" aria-label="Plan For Today "defaultChecked />
   <div className="tab-content bg-base-100 border-base-300 p-6">
 {readCards.length> 0? readCards.map((card: ICard) => {
-    return <CardItem key={card.id} card={card}  />
+    return <CardItem key={card.id} card={card} type="Plan For Today" />
 }):<div className='text-center p-10'><h2>NOTHING HERE YET</h2>
 <h2>Browse the library and add a lift to get today moving.</h2>
 <Link href="/"><button className="btn btn-active bg-[#C2F800] text-black">Go to workouts</button>
@@ -43,9 +43,9 @@ const PlansPage = () => {
 
   </div>
 
-  <input type="radio" name="my_tabs_3" className="tab" aria-label="Saved" defaultChecked />
+  <input type="radio" name="my_tabs_3" className="tab" aria-label="Saved"  />
   <div className="tab-content bg-base-100 border-base-300 p-6">{list.length>0 ? list.map((card: ICard) => {
-    return <CardItem key={card.id} card={card}  />
+    return <CardItem key={card.id} card={card} type="Saved" />
 }):<div className='text-center p-10'><h2>NOTHING HERE YET</h2>
 <h2>Browse the library and add a lift to get today moving.</h2>
 <Link href="/"><button className="btn btn-active bg-[#C2F800] text-black">Go to workouts</button>

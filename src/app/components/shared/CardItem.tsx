@@ -6,20 +6,20 @@ import { ICard } from '@/app/types/cards.type';
 import { MdDone } from 'react-icons/md';
 import { CardContext } from '@/context/CardContext';
 
-interface CardProps{
+interface CardProps {
     card: ICard,
-    type: 'Today’s Plan' | 'Saved'
+    type: 'Plan For Today' | 'Saved'
 }
 
-const CardItem = ({ card,type }:CardProps) => {
-    const { readCards, setReadCards,list, setList } = useContext(CardContext);
+const CardItem = ({ card, type }: CardProps) => {
+    const { readCards, setReadCards, list, setList } = useContext(CardContext);
 
     const handleRemoveCard = (card: ICard) => {
-if (type === 'Today’s Plan'){
-     const restCards = readCards.filter((cards: ICard) => cards.id !== card.id);
+        if (type === 'Plan For Today') {
+            const restCards = readCards.filter((cards: ICard) => cards.id !== card.id);
             setReadCards(restCards);
-}
-       else {
+        }
+        else {
             const restList = list.filter((cards: ICard) => cards.id !== card.id);
             setList(restList);
         }
@@ -29,7 +29,7 @@ if (type === 'Today’s Plan'){
 
     return (
 
-        <div className='flex justify-between rounded-2xl bg-[#232732] p-4'>
+        <div className='flex justify-between  rounded-2xl bg-[#232732] p-4 mt-3'>
             <div className='flex gap-5'>     <Image src={card.image}
                 alt={card.name}
                 width={100}
@@ -44,12 +44,12 @@ if (type === 'Today’s Plan'){
                         <div className='flex gap-2'><FaRegStar className='mt-1' /><h2>{card.rating}</h2></div>
                     </div>
                 </div></div>
-            <div className='mt-7'>
-                <button className="btn btn-outline">View Details</button>
-
+            <div className='mt-7 flex'>
+                <Link href={`/cards/${card.id}`}>                <button className="btn btn-outline rounded-2xl borde-[#374151] mx-2">View Details</button>
+                </Link>
                 <button className="btn btn-active bg-[#CCFF00] rounded-2xl text-black"><MdDone />
                     Mark as Done</button>
-                <button onClick={() => handleRemoveCard(card)}>✕</button>
+                <button className='mx-3 mb-8' onClick={() => handleRemoveCard(card)}>✕</button>
 
             </div>
         </div>

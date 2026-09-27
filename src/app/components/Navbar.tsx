@@ -40,8 +40,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost">Plans{readCards.length}</button>
-                <button className="btn btn-ghost">Saved{list.length}</button>
+                <Link href={`/plans`}
+                > 
+                <button className="btn btn-ghost">Plans <span className='bg-[#C2F800] rounded-full text-black px-2'>{readCards.length}</span></button>
+                <button className="btn btn-ghost">Saved <span className='border border-[#2D313B] rounded-full px-2'>{list.length}</span></button>
+                
+                </Link>
             </div>
         </div>
       
