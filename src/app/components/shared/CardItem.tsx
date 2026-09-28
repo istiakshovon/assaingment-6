@@ -13,7 +13,12 @@ interface CardProps {
 }
 
 const CardItem = ({ card, type }: CardProps) => {
-    const { readCards, setReadCards, list, setList } = useContext(CardContext);
+    const { readCards, setReadCards, list, setList } = useContext(CardContext) as {
+        readCards: ICard[];
+        setReadCards: React.Dispatch<React.SetStateAction<ICard[]>>;
+        list: ICard[];
+        setList: React.Dispatch<React.SetStateAction<ICard[]>>;
+    };
     const [isDone, setIsDone] = useState(false);
 
     const handleRemoveCard = (card: ICard) => {

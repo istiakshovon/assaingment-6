@@ -1,7 +1,6 @@
 'use client'
 import { ICard } from '@/app/types/cards.type';
-import { CardContext } from '@/context/CardContext';
-import React, { useContext } from 'react';
+import { CardContext } from '@/context/CardContext';import React, { useContext } from 'react';
 import { CiBookmark } from 'react-icons/ci';
 import { IoBagAddOutline } from 'react-icons/io5';
 import { toast } from 'react-toastify';
@@ -10,7 +9,13 @@ import { toast } from 'react-toastify';
 
 const Saved = ({card}: {card: ICard}) => {
 
-    const {list,setList} = useContext(CardContext)
+    const cardContext = useContext(CardContext) as {
+        list: ICard[];
+        setList: React.Dispatch<React.SetStateAction<ICard[]>>;
+    } | null;
+
+    const list = cardContext?.list ?? [];
+    const setList = cardContext?.setList ?? (() => {});
 
  
     const handleSaveCards = () =>{

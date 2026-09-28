@@ -33,7 +33,7 @@ const CardsDetails = async ({ params }: IcardDetails) => {
                     <h2 className="card-title font-bold text-4xl">{card.name}</h2>
                     <p className='text-[#9CA3AF]'>{card.description}</p>
                     <div className='flex gap-2 p-4 '>
-                        {card.muscleGroups.map((muscle, ind) => (
+                        {card.muscleGroups.map((muscle: string, ind: number) => (
                             <span
                                 key={ind}
                                 className='bg-[#C2F800] px-4 py-1 rounded-full text-black '

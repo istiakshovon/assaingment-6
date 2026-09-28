@@ -4,11 +4,11 @@ import logo from "@/assets/logo.png"
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useContext } from 'react';
-import { CardContext } from '@/context/CardContext';
+import {CardContext} from '@/context/CardContext';
 
 const Navbar = () => {
   const pathname = usePathname()
-    const {readCards,list} = useContext(CardContext);
+        const { readCards, list } = useContext(CardContext) 
 
   
 

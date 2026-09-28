@@ -9,7 +9,10 @@ import { toast } from 'react-toastify';
 
 const AddButton = ({ card }: { card: ICard }) => {
 
-    const { readCards, setReadCards } = useContext(CardContext)
+     const { readCards, setReadCards } = useContext(CardContext) as {
+        readCards: ICard[];
+        setReadCards: React.Dispatch<React.SetStateAction<ICard[]>>;
+    };
     const handleAddCards = () => {
         const alreadyAdded = readCards.some(
             (item: ICard) => item.id === card.id

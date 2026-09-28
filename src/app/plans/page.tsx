@@ -23,7 +23,10 @@ const sumOfCalories = (cards: ICard[]) => {
 const PlansPage = () => {
 
   const [type, setType] = useState<'Plan For Today' | 'Saved'>('Plan For Today')
-  const { readCards, list } = useContext(CardContext);
+  const { readCards, list } = useContext(CardContext) as {
+    readCards: ICard[];
+    list: ICard[];
+  };
 const [sortBy,setSortBy]= useState<"duration" | "calories" | "rating">("duration")
 
 const sortCards = (cards: ICard[]) =>{
