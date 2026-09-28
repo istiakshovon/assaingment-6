@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaFire, FaRegClock, FaRegStar } from "react-icons/fa";
 import { ICard } from '@/app/types/cards.type';
 import { MdDone } from 'react-icons/md';
@@ -14,6 +14,7 @@ interface CardProps {
 
 const CardItem = ({ card, type }: CardProps) => {
     const { readCards, setReadCards, list, setList } = useContext(CardContext);
+    const [isDone, setIsDone] = useState(false);
 
     const handleRemoveCard = (card: ICard) => {
         if (type === 'Plan For Today') {
@@ -26,6 +27,15 @@ const CardItem = ({ card, type }: CardProps) => {
         }
         toast.success(`Removed successfully`)
     }
+
+    const handleMark = () => {
+
+         setIsDone(!isDone);
+        if (!isDone) {
+            toast.success(`Workout done`);
+        }
+    }
+
 
 
 
@@ -49,10 +59,10 @@ const CardItem = ({ card, type }: CardProps) => {
             <div className='mt-7 flex'>
                 <Link href={`/cards/${card.id}`}>                <button className="btn btn-outline rounded-2xl borde-[#374151] mx-2">View Details</button>
                 </Link>
-              {type === 'Plan For Today' ? (<button className="btn btn-active bg-[#CCFF00] rounded-2xl text-black">
-    <MdDone />
-    Mark as Done
-</button>): ''}
+                {type === 'Plan For Today' ? (<button className="btn btn-active bg-[#CCFF00] rounded-2xl text-black" onClick={() => handleMark()}>
+                    <MdDone />
+                    {isDone ? 'workout done' : 'Mark as Done'}
+                </button>) : ''}
                 <button className='mx-3 mb-8' onClick={() => handleRemoveCard(card)}>✕</button>
 
             </div>
