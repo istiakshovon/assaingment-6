@@ -1,22 +1,15 @@
 import AddButton from '@/app/components/cardDetails/AddButton';
 import Saved from '@/app/components/cardDetails/Saved';
+import { ICard, IcardDetails } from '@/app/types/cards.type';
 import Image from 'next/image';
 import React from 'react';
 import { CiBookmark } from 'react-icons/ci';
 import { IoBagAddOutline } from 'react-icons/io5';
-interface ICard {
-    id: number;
-    name: string;
-}
 
-interface IcardDetails {
-    params: Promise<{
-        id: string
-        card: string
-    }>;
-}
 
-const getCard = async () => {
+
+
+export const getCard = async () => {
     const response = await fetch("http://localhost:3000/detaildata.json")
     const data = await response.json()
     return data

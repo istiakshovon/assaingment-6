@@ -19,3 +19,9 @@ export interface ICard {
     description:string,
     instructions: string,
 }
+export interface IcardDetails {
+    params: Promise<{
+        id: string
+        card: string
+    }>;
+}

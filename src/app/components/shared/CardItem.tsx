@@ -47,8 +47,10 @@ const CardItem = ({ card, type }: CardProps) => {
             <div className='mt-7 flex'>
                 <Link href={`/cards/${card.id}`}>                <button className="btn btn-outline rounded-2xl borde-[#374151] mx-2">View Details</button>
                 </Link>
-                <button className="btn btn-active bg-[#CCFF00] rounded-2xl text-black"><MdDone />
-                    Mark as Done</button>
+              {type === 'Plan For Today' ? (<button className="btn btn-active bg-[#CCFF00] rounded-2xl text-black">
+    <MdDone />
+    Mark as Done
+</button>): ''}
                 <button className='mx-3 mb-8' onClick={() => handleRemoveCard(card)}>✕</button>
 
             </div>
