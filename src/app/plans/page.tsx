@@ -45,7 +45,7 @@ const sortedList = sortCards(list);
 
 
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto mt-7'>
       <h2 className='text-2xl font-bold'>MY PLAN</h2>
       <h4 className='text-[#8A92A0]'>Cap of five lifts for today. Finish them, then load more.</h4>
 
@@ -54,11 +54,11 @@ const sortedList = sortCards(list);
         <div className="flex">
           <div className="divider divider-horizontal"></div>
         </div>
-        <div><h2 >Minutes</h2><span>{type === 'Plan For Today' ? sumofMinutes(readCards) : sumofMinutes(list)}</span></div>
+        <div><h2 >Minutes</h2><span className='text-3xl'>{type === 'Plan For Today' ? sumofMinutes(readCards) : sumofMinutes(list)}</span></div>
         <div className="flex">
           <div className="divider divider-horizontal"></div>
         </div>
-        <div><h2>Calories</h2><span>{type === 'Plan For Today' ? sumOfCalories(readCards) : sumOfCalories(list)}</span></div>
+        <div><h2>Calories</h2><span className='text-3xl'>{type === 'Plan For Today' ? sumOfCalories(readCards) : sumOfCalories(list)}</span></div>
       </div>
 
       <div className='flex w-full  items-start '>  {/* name of each tab group should be unique */}
