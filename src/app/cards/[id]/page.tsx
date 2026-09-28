@@ -2,18 +2,14 @@ import AddButton from '@/app/components/cardDetails/AddButton';
 import Saved from '@/app/components/cardDetails/Saved';
 import { ICard, IcardDetails } from '@/app/types/cards.type';
 import Image from 'next/image';
-import React from 'react';
-import { CiBookmark } from 'react-icons/ci';
-import { IoBagAddOutline } from 'react-icons/io5';
-
-
-
+import { promises as fs } from 'fs';
+import path from 'path';
 
 export const getCard = async () => {
-    const response = await fetch("http://localhost:3000/detaildata.json")
-    const data = await response.json()
-    return data
-}
+    const filePath = path.join(process.cwd(), 'public', 'detaildata.json');
+    const file = await fs.readFile(filePath, 'utf-8');
+    return JSON.parse(file);
+};
 
 const CardsDetails = async ({ params }: IcardDetails) => {
     const { id } = await params
@@ -54,7 +50,7 @@ const CardsDetails = async ({ params }: IcardDetails) => {
 
                         <span className='flex justify-between'><h2 className='text-[#9CA3AF]'>DURATION</h2><h2>{card.duration}</h2></span>                          <div className="divider"></div>
 
-                        <span className='flex justify-between'><h2 className='text-[#9CA3AF]'>CALORIES</h2><h2>{card.calories}</h2></span>                          <div className="divider"></div>
+                        <span className='flex justify-between'><h2 className='text-[#9CA3AF]'>CALORIES</h2><h2>{card.caloriesBurned}</h2></span>                          <div className="divider"></div>
 
                         <span className='flex justify-between'><h2 className='text-[#9CA3AF]'>RATING</h2><h2>{card.rating}</h2></span>
                     </div>

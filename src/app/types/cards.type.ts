@@ -13,11 +13,11 @@ export interface ICard {
     duration:number,
     caloriesBurned:number,
     sets:number,
-    reps:number,
+    reps:string,
 
     rating:number,
     description:string,
-    instructions: string,
+    instructions: string[],
 }
 export interface IcardDetails {
     params: Promise<{

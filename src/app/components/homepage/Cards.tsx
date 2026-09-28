@@ -7,7 +7,7 @@ import path from 'path';
 import { FaFire, FaRegClock, FaRegStar } from "react-icons/fa";
 
 const getCards = async (): Promise<ICard[]> => {
-    const filePath = path.join(process.cwd(), 'public', 'cardsData.json');
+    const filePath = path.join(process.cwd(), 'public', 'cardsdata.json');
     const file = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(file);
 };

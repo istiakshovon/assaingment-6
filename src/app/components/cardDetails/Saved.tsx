@@ -2,7 +2,6 @@
 import { ICard } from '@/app/types/cards.type';
 import { CardContext } from '@/context/CardContext';import React, { useContext } from 'react';
 import { CiBookmark } from 'react-icons/ci';
-import { IoBagAddOutline } from 'react-icons/io5';
 import { toast } from 'react-toastify';
 
 
