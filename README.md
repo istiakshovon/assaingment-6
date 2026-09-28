@@ -4,6 +4,7 @@ Technologies used: 1. react
                    2. nextjs
                    3. daisyui
                    4. typescript
+                   5.TailwindCss
 5 key features of the project: 1. Anyone can easily do their exercises 
                                2. it's easy to store activities
                                3. it's shows total duration and caloriesburn
