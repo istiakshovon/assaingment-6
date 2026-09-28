@@ -19,6 +19,7 @@ const CardsDetails = async ({ params }: IcardDetails) => {
     const { id } = await params
     const detaildata = await getCard()
     const card = detaildata.find((card: ICard) => String(card.id) === String(id))
+
     return (
         <div className='conteinar mx-auto mt-3'>
             <div className="card lg:card-side bg-[#0F1115] shadow-sm">
@@ -64,8 +65,8 @@ const CardsDetails = async ({ params }: IcardDetails) => {
                         ))}
                     </ol>
 
-                    <div className="mt-5">
-                    <AddButton card={card}/>
+                    <div className="flex mt-5">
+                    <AddButton card={card} />
                         <Saved card={card}></Saved>
 
                     </div>

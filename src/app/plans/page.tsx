@@ -43,9 +43,9 @@ const PlansPage = () => {
 </div>
 
 {/* name of each tab group should be unique */}
-<div className="tabs tabs-lift mt-5">
+<div className="tabs tabs-lift mt-5 ">
   <input type="radio" name="my_tabs_3" className="tab" aria-label="Plan For Today "  onChange={() => setType('Plan For Today')} defaultChecked />
-  <div className="tab-content bg-base-100 border-base-300 p-6">
+  <div className="tab-content bg-[#111317] border-base-300 p-6">
 {readCards.length> 0? readCards.map((card: ICard) => {
     return <CardItem key={card.id} card={card} type="Plan For Today" />
 }):<div className='text-center p-10'><h2>NOTHING HERE YET</h2>
@@ -57,7 +57,7 @@ const PlansPage = () => {
   </div>
 
   <input type="radio" name="my_tabs_3" className="tab" aria-label="Saved"   onChange={() => setType('Saved')} />
-  <div className="tab-content bg-base-100 border-base-300 p-6">{list.length>0 ? list.map((card: ICard) => {
+  <div className="tab-content bg-[#111317] border-base-300 p-6">{list.length>0 ? list.map((card: ICard) => {
     return <CardItem key={card.id} card={card} type="Saved" />
 }):<div className='text-center p-10'><h2>NOTHING HERE YET</h2>
 <h2>Browse the library and add a lift to get today moving.</h2>

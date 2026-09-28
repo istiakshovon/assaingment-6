@@ -16,11 +16,13 @@ const Cards = async () => {
     console.log(cardsData, "cardsData");
     return (
       <section className='conteinar mx-auto p-10'>
+        
             <h2 className='text-bold text-2xl'>THE LIBRARY</h2>
             <h2 className='text-[#9CA3AF]'>Twelve lifts covering every major muscle group.</h2>
            <div className='grid grid-cols-3 gap-6 mt-5'>
                 {cardsData.map((card, ind) => {
                     return <div key={ind} className=''>
+                        
                         <Link href={`/cards/${card.id}`}> 
                         <div className=" card bg-base-100 justify-between shadow-sm">
                             <figure>

@@ -5,6 +5,7 @@ import { FaFire, FaRegClock, FaRegStar } from "react-icons/fa";
 import { ICard } from '@/app/types/cards.type';
 import { MdDone } from 'react-icons/md';
 import { CardContext } from '@/context/CardContext';
+import { toast } from 'react-toastify';
 
 interface CardProps {
     card: ICard,
@@ -23,6 +24,7 @@ const CardItem = ({ card, type }: CardProps) => {
             const restList = list.filter((cards: ICard) => cards.id !== card.id);
             setList(restList);
         }
+        toast.success(`Removed successfully`)
     }
 
 

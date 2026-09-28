@@ -1,21 +1,32 @@
 'use client'
+import { ICard } from '@/app/types/cards.type';
 import { CardContext } from '@/context/CardContext';
 import React, { useContext } from 'react';
 import { CiBookmark } from 'react-icons/ci';
 import { IoBagAddOutline } from 'react-icons/io5';
+import { toast } from 'react-toastify';
 
-interface ICard {
-    id: number;
-    name: string;
-}
+
 
 const Saved = ({card}: {card: ICard}) => {
 
     const {list,setList} = useContext(CardContext)
 
+ 
     const handleSaveCards = () =>{
+ const alreadyAdded = list.some(
+            (item: ICard) => item.id === card.id
+        );
+
+        if (alreadyAdded) {
+            toast.warning("Already added");
+            return;
+        }
+
 
 setList([...list,card]);
+
+toast.success(` Saved for later`)
 
 console.log("read");
     };
